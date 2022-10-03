@@ -1,0 +1,62 @@
+.container{
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #fff;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.publishedAt {
+    margin-bottom: 10px;
+}
+
+.category{
+    display: inline-block;
+    font-weight: bold;
+}
+
+.post {
+    & > h1 {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 40px 0 20px;
+        background-color: #eee;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    & > h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 40px 0 16px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    & > p {
+        line-height: 1.8;
+        letter-spacing: 0.2px;
+    }
+
+    & > ol {
+        list-style-type: decimal;
+        list-style-position: inside;
+    }
+}
+
+.tags{
+    margin-bottom: 100px;
+    & span{
+        border: 1px solid #333;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-right: 20px;
+
+        &:before{
+            content: "#";
+            margin-right: 2px;
+        }
+    }
+}
