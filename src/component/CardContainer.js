@@ -21,7 +21,6 @@ export default function CardContainer({blog,ttl}) {
                 .container{
                     grid-area: container;
                     width: 1000px;
-                    margin: 0;
                     padding: 0 20px 10px 0;
                 }
 
@@ -32,8 +31,6 @@ export default function CardContainer({blog,ttl}) {
 
                 .card_list{
                     width: 100%;
-                    margin: 0;
-                    padding: 0;
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px 10px;

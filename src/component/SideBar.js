@@ -104,12 +104,10 @@ export default function SideBar({category,tags}) {
           }
 
           .category_list, .tags_list{
-              padding: 0;
               margin: 0 0 20px;
           }
 
           .category_list li, .tags_list li{
-            list-style: none;
             background: #eee;
             cursor: pointer;
             border-left: 4px solid #999;

@@ -22,10 +22,9 @@ export default function Header(){
                     }
                 
                     h1{
-                        margin: 0;
                         font-size: 24px;
                         line-height: 60px;
-                        padding-left: 20px;
+                        padding: 0 0 0 20px;
                         white-space: nowrap;
                     }
 

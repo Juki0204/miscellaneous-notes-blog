@@ -38,14 +38,9 @@ export const Pagination = ({ totalCount,id,directory }) => {
       <style jsx>{`
         ul{
           grid-area: pagination;
-          padding: 0;
           display: flex;
           justify-content: center;
           margin-bottom: 20px;
-        }
-
-        li{
-          list-style: none;
         }
 
         .pagination a{

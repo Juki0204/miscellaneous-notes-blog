@@ -34,7 +34,6 @@ export default function Card({blog,tags}){
 
             <style jsx>{`
                 .card{
-                    list-style: none;
                     width: 100%;
                     max-height: 300px;
                     border-radius: 8px;
