@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 export default function Header(){
@@ -6,7 +7,14 @@ export default function Header(){
         <header>
                 <h1>
                     <Link href="/">
-                    <a>Next.js＋microCMSで作るブログ</a>
+                        <a>
+                            <Image
+                                width={96}
+                                height={50}
+                                alt="ヘッダーアイコン"
+                                src="/img/header_icon.png"
+                            />
+                        </a>
                     </Link>
                 </h1>
 
@@ -20,20 +28,17 @@ export default function Header(){
                         box-shadow: 0 0 3px #999;
                         z-index: 10;
                     }
-                
+                    
                     h1{
-                        font-size: 24px;
-                        line-height: 60px;
-                        padding: 0 0 0 20px;
-                        white-space: nowrap;
+                        display: flex;
+                        justify-content: center;
                     }
 
-                    @media screen and (max-width:767px){
-                        h1{
-                            padding: 0;
-                            text-align: center;
-                        }
+                    a{
+                        display: block;
+                        padding: 5px;
                     }
+
                 `}</style>
             </header>
     )
