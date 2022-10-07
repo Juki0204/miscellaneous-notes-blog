@@ -9,7 +9,7 @@ import { Pagination } from '/src/component/Pagination';
 
 
 export const getStaticProps = async() => {
-  const data = await client.get({endpoint: 'blog', queries:{offset:0,limit:5}});
+  const data = await client.get({endpoint: 'blog', queries:{offset:0,limit:6}});
   const categoryData = await client.get({endpoint: 'categories'});
   const tagsData = await client.get({endpoint: 'tags'});
   return{

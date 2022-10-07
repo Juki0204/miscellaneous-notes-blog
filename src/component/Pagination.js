@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const Pagination = ({ totalCount,id,directory }) => {
-  const PER_PAGE = 5;
+  const PER_PAGE = 6;
 
   const range = (start, end) =>
         [...Array(end - start + 1)].map((_, i) => start + i)

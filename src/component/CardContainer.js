@@ -20,7 +20,7 @@ export default function CardContainer({blog,ttl}) {
             <style jsx>{`
                 .container{
                     grid-area: container;
-                    width: 1000px;
+                    width: 900px;
                     padding: 0 20px 10px 0;
                 }
 

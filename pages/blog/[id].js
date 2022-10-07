@@ -64,17 +64,22 @@ const BlogId = ({blog,activeTags,category,tags}) => {
   return (
     <Layout>
         <div className="container">
-            <div className="title_outer" style={{backgroundImage: "url("+eyecatchImage+")"}}>
-                <h2 className="title">{blog.title}</h2>
+            {/* <div className="title_outer" style={{backgroundImage: "url("+eyecatchImage+")"}}>
+            </div> */}
+            <div className="eyecatch">
+                <img src={`${blog.eyecatch.url}`} alt={blog.title}/>
             </div>
-            <p className="publishedAt"><Icon.Clock width={16} height={16} />{format(new Date(blog.publishedAt), "yyyy年MM月dd日")}</p>
-            <div className="category_box">
-                <span className="category">{blog.category && `${blog.category.name}`}</span>
-                {activeTags.map((activeTags) => (
-                    <span key={activeTags.id} className="tags">
-                        <Icon.Tag width={14} height={14} />{activeTags.tags}
-                    </span>
-                ))}
+            <h2 className="title">{blog.title}</h2>
+            <div className="info">
+                <div className="category_box">
+                    <span className="category">{blog.category && `${blog.category.name}`}</span>
+                    {activeTags.map((activeTags) => (
+                        <span key={activeTags.id} className="tags">
+                            <Icon.Tag width={14} height={14} />{activeTags.tags}
+                        </span>
+                    ))}
+                </div>
+                <p className="publishedAt"><Icon.Clock width={16} height={16} />{format(new Date(blog.publishedAt), "yyyy年MM月dd日")}</p>
             </div>
             <div className="post" dangerouslySetInnerHTML={{__html:`${blog.body}`}}></div>
         </div>
@@ -83,9 +88,9 @@ const BlogId = ({blog,activeTags,category,tags}) => {
 
         <style jsx>{`
             .container{
-                width: 960px;
-                margin: 0 auto;
-                padding: 310px 40px 10px;
+                width: 880px;
+                margin: 0 20px 0 0;
+                padding: 56.22222% 40px 40px;
                 background: #fff;
                 border-radius: 8px;
                 box-shadow: 1px 1px 3px #999;
@@ -95,64 +100,40 @@ const BlogId = ({blog,activeTags,category,tags}) => {
             
             .title {
                 display: inline-block;
-                margin: 20px;
+                margin: 20px auto 10px;
                 color: #000;
-                text-shadow: 1px 1px 2px #fff, 1px 1px 2px #fff, 2px 2px 2px #fff, 2px 2px 2px #fff, 2px 2px 0 #fff, 2px 2px 0 #fff;
+                border-bottom: 6px solid #999;
                 font-size: 30px;
                 z-index: 1;
-                padding: 5px 30px 0;
-                text-align: center;
+                text-align: left;
             }
 
-            .title_outer{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 300px;
-                background-size: 100% auto;
-                background-position: center;
-                bckground-repeat: no-repeat;
-                backdrop-filter: blur(12px);
-                overflow: hidden;
+            .eyecatch{
                 position: absolute;
-                width: 100%;
                 top: 0;
                 left: 0;
-                right: 0;
-                margin: auto;
+                width: 100%;
+            }
+            .eyecatch img{
+                width: 100%;
+                height: auto;
             }
 
-            .title_outer::before {
-                background: inherit;
-                content: '';
-                filter: blur(5px);
-                position: absolute;
-                top: -10px;
-                right: -10px;
-                bottom: -10px;
-                left: -10px;
-            }
-            
-            .title_outer::after {
-                background: rgba(255,255,255,.8);
-                content: '';
-                filter: blur(5px);
-                position: absolute;
-                top: -10px;
-                right: -10px;
-                bottom: -10px;
-                left: -10px;
+            .info{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                align-items: center;
+                margin-bottom: 100px;
             }
             
             .publishedAt {
-                margin-bottom: 10px;
                 display: flex;
                 align-items: center;
                 gap: 0 5px;
             }
             
             .category_box{
-                margin-bottom: 100px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: left;
@@ -165,43 +146,52 @@ const BlogId = ({blog,activeTags,category,tags}) => {
                 border-radius: 5px;
                 background: #999;
                 color: #fff;
-                padding: 5px 10px;
+                font-size: 14px;
+                padding: 2px 10px;
             }
 
             .tags{
                 display: flex;
                 align-items: center;
-                padding: 5px;
+                padding: 3px;
                 margin-left: 10px;
             }
             
             .back_button{
                 display: flex;
-                padding: 10px;
+                padding: 0 10px;
+                margin: 10px auto 30px;
                 align-items: center;
                 justify-content: center;
                 grid-area: pagination;
                 cursor: pointer;
+                transition: .3s all ease;
+            }
+
+            .back_button:hover{
+                color: #d00;
             }
 
             @media screen and (max-width:1000px){
                 .container{
                     width: 100%;
                     margin: 0 auto;
-                    padding: 210px 10px 10px;
-                }
-
-                .title_outer{
-                    height: 200px;
+                    padding: 56.22222% 10px 10px;
                 }
 
                 .title{
-                    margin: 0 auto;
+                    margin: 10px auto;
                     font-size: 24px;
+                    border-bottom: 4px solid #999;
                 }
 
-                .category_box{
+                .info{
+                    display: block;
                     margin-bottom: 50px;
+                }
+
+                .publishedAt{
+                    margin-top: 5px;
                 }
             }
         

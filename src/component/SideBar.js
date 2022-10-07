@@ -10,6 +10,7 @@ export default function SideBar({category,tags}) {
     return (
       <div className="sidebar">
         <div className="profile">
+          <h2 className="profile_ttl">Profile</h2>
           <div className="profile_img">
             <Image 
               src="/img/profile.jpg"
@@ -24,7 +25,7 @@ export default function SideBar({category,tags}) {
           </p>
         </div>
         <div className="category">
-            <h2 className="category_ttl">カテゴリー</h2>
+            <h2 className="category_ttl">Category</h2>
             <ul className="category_list">
               {category.map((category) => (
                 <li key={category.id}>
@@ -36,7 +37,7 @@ export default function SideBar({category,tags}) {
             </ul>
         </div>
         <div className="tags">
-            <h2 className="tags_ttl">タグ</h2>
+            <h2 className="tags_ttl">Tags</h2>
             <ul className="tags_list">
               {tags.map((tags) => (
                 <li key={tags.id}>
@@ -56,7 +57,7 @@ export default function SideBar({category,tags}) {
                                  "category"
                                  "tags";
             grid-template-rows: min-content min-content min-content;
-            width: 300px;
+            width: 400px;
             padding: 10px 20px;
             background: #fff;
             box-shadow: 1px 1px 3px #999;
@@ -97,9 +98,9 @@ export default function SideBar({category,tags}) {
             grid-area: category;
           }
 
-          .category_ttl, .tags_ttl{
+          .profile_ttl, .category_ttl, .tags_ttl{
             width: 100%;
-            margin: 0 auto 5px;
+            margin: 0 auto 10px;
             font-size: 18px;
           }
 
@@ -114,6 +115,11 @@ export default function SideBar({category,tags}) {
             border-radius: 4px;
             transition: .3s all ease;
             box-shadow: 1px 1px 3px #aaa;
+          }
+
+          .tags_list li{
+            display: inline-block;
+            margin-right: 10px;
           }
 
           .category_list li a, .tags_list li a{

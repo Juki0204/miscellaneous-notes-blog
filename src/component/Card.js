@@ -17,7 +17,7 @@ export default function Card({blog,tags}){
                     <img src={`${blog.eyecatch.url}`} alt={blog.title}/>
                 </div>
                 <div className="detail">
-                    <h3 className="detail_ttl">{blog.title}</h3>
+                    <p className="publishedAt"><Icon.Clock width={16} height={16} />{format(new Date(blog.publishedAt), "yyyy年MM月dd日")}</p>
                     <div className="category_box">
                         <span className="category">{blog.category && `${blog.category.name}`}</span>
                         {tags.map((tags) => (
@@ -26,16 +26,15 @@ export default function Card({blog,tags}){
                             </span>
                         ))}
                     </div>
+                    <h3 className="detail_ttl">{blog.title}</h3>
                     <div className="post">{blog.body.replace(/(<([^>]+)>)/gi, '')}</div>
-                    <p className="publishedAt"><Icon.Clock width={16} height={16} />{format(new Date(blog.publishedAt), "yyyy年MM月dd日")}</p>
                 </div>
             </a>
             </Link>
 
             <style jsx>{`
                 .card{
-                    width: 100%;
-                    max-height: 300px;
+                    width: calc(50% - 5px);
                     border-radius: 8px;
                     overflow: hidden;
                     background: #fff;
@@ -49,43 +48,40 @@ export default function Card({blog,tags}){
                 }
                 
                 .card_link{
-                    display: flex;
                     width: 100%;
                     height: 100%;
                     position: relative;
                 }
 
                 .eyecatch{
-                    width: 300px;
+                    width: 100%;
                     height: auto;
-                    max-height: 190px;
                     overflow: hidden;
                     display: flex;
                     justify-content: center;
                 }
 
                 .eyecatch img{
-                    width: auto;
-                    height: 100%;
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 16/9;
                 }
 
                 .detail{
                     background: rgba(255,255,255,.8);
-                    width: calc(100% - 300px);
-                    padding: 0 0 34px 0;
-                    margin: 10px;
+                    width: 100%;
+                    padding: 10px;
                     box-sizing: border-box;
                     position: relative;
                 }
 
                 .detail_ttl{
-                    margin: 0 auto 10px;
-                    font-size: 20px;
+                    margin: 3px auto;
+                    font-size: 16px;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2;
+                    -webkit-line-clamp: 1;
                     overflow: hidden;
-                    border-bottom: 1px solid #999;
                 }
 
                 .category_box{
@@ -101,11 +97,12 @@ export default function Card({blog,tags}){
                     border-radius: 5px;
                     background: #999;
                     color: #fff;
-                    margin: 0 5px 10px 0;
+                    margin: 0 5px 0 0;
                     padding: 0 10px;
-                    font-size: 14px;
-                    height: 30px;
-                    line-height: 30px;
+                    font-size: 12px;
+                    letter-spacing: 1px;
+                    height: 24px;
+                    line-height: 24px;
                 }
     
                 .tags{
@@ -113,13 +110,14 @@ export default function Card({blog,tags}){
                     align-items: center;
                     gap: 0 3px;
                     padding: 0 5px;
-                    margin: 0 5px 10px 0;
+                    margin: 0 5px 0 0;
                     font-size: 14px;
                     height: 30px;
                     line-height: 30px;
                 }
 
                 .post{
+                    font-size: 12px;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 2;
@@ -129,17 +127,10 @@ export default function Card({blog,tags}){
                 .publishedAt{
                     display: flex;
                     align-items: center;
-                    justify-content: right;
+                    justify-content: left;
                     gap: 0 5px;
-                    margin: 10px 0 0 auto;
-                    border-bottom: 1px solid #999;
-                    max-width: 200px;
-                    width: 100%;
                     padding: 0 2px 2px 0;
-                    font-size: 16px;
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
+                    font-size: 12px;
                     box-sizing: border-box;
                 }
 
@@ -152,49 +143,22 @@ export default function Card({blog,tags}){
                     }
                 }
 
-                @media screen and (max-width:1000px){
-                    .card{
-                      width: 100%; 
-                      max-width: none;
-                    } 
-
-                    .post{
-                        display: none;
-                    }
-
-                    .eyecatch{
-                        max-width: 230px;
-                        width: 30%;
-                        max-height: 150px;
-                    }
-
-                    .detail{
-                        max-width: 770px;
-                        width: 70%;
-                    }
-                }
+                
 
                 @media screen and (max-width:767px){
-                    .detail{
-                        padding: 0;
+                    .card{
+                        width: 100%;
                     }
                     
                     .detail_ttl{
-                        font-size: 16px;
-                        margin-bottom: 5px;
+                        margin: 0 auto 3px;
                     }
 
                     .category, .tags{
                         font-size: 12px;
                         line-height: 20px;
                         height: 20px;
-                        margin: 0 5px 5px 0;
-                    }
-
-                    .publishedAt{
-                        bottom: 0;
-                        right: 0;
-                        margin: 0;
+                        margin: 0 5px 3px 0;
                     }
                 }
             `}</style>

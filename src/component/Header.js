@@ -9,10 +9,10 @@ export default function Header(){
                     <Link href="/">
                         <a>
                             <Image
-                                width={96}
-                                height={50}
-                                alt="ヘッダーアイコン"
-                                src="/img/header_icon.png"
+                                layout="fill"
+                                objectFit="contain"
+                                alt="ざくざく、ごろん。"
+                                src="/img/header_logo.png"
                             />
                         </a>
                     </Link>
@@ -21,7 +21,7 @@ export default function Header(){
                 <style jsx>{`
                     header{
                         width: 100%;
-                        height: 60px;
+                        height: 100px;
                         position: fixed;
                         top: 0;
                         background: #fff;
@@ -36,9 +36,15 @@ export default function Header(){
 
                     a{
                         display: block;
-                        padding: 5px;
+                        width: 100%;
+                        height: auto;
                     }
 
+                    @media screen and (max-width:767px){
+                        header{
+                            height: 80px;
+                        }
+                    }
                 `}</style>
             </header>
     )
