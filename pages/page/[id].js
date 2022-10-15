@@ -18,7 +18,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     const id = context.params.id;
 
-    const data = await client.get({ endpoint: "blog", queries: { offset: (id - 1) * 5, limit: 5 } });
+    const data = await client.get({ endpoint: "blog", queries: { offset: (id - 1) * 6, limit: 6 } });
     const categoryData = await client.get({endpoint: 'categories'});
     const tagsData = await client.get({endpoint: 'tags'});
 
@@ -33,8 +33,7 @@ export const getStaticProps = async (context) => {
     };
 };
 
-
-const PER_PAGE = 5; 
+const PER_PAGE = 6; 
 
 // pages/blog/[id].js
 export default function BlogPageId({ blog,category,tags,totalCount,id }) {

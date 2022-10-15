@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';0
 
 
 export default function Header(){
@@ -8,12 +8,7 @@ export default function Header(){
                 <h1>
                     <Link href="/">
                         <a>
-                            <Image
-                                layout="fill"
-                                objectFit="contain"
-                                alt="ざくざく、ごろん。"
-                                src="/img/header_logo.png"
-                            />
+                            <img src="/img/header_logo.png" alt="ざくざく、ごろん。"/>
                         </a>
                     </Link>
                 </h1>
@@ -30,19 +25,38 @@ export default function Header(){
                     }
                     
                     h1{
-                        display: flex;
-                        justify-content: center;
+                        height: 100%;
                     }
 
                     a{
-                        display: block;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         width: 100%;
-                        height: auto;
+                        height: 100px;
+                        text-align: center;
+                    }
+
+                    img{
+                        height: 100%;
+                        max-width: auto;
+                        width: 100%;
+                        object-fit: contain;
                     }
 
                     @media screen and (max-width:767px){
                         header{
                             height: 80px;
+                        }
+
+                        a{
+                            height: 80px;
+                        }
+
+                        img{
+                            height: auto;
+                            max-width: 432px;
+                            width: 100%;
                         }
                     }
                 `}</style>

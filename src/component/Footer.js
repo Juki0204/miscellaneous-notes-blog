@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 export default function Footer(){
     return (
@@ -8,24 +8,14 @@ export default function Footer(){
                 <li>
                     <Link href="/">
                         <a target="_blank">
-                            <Image
-                                src="/img/Twitter_icon.png"
-                                width={32}
-                                height={32}
-                                alt="Twitter"
-                            />
+                            <img src="/img/Twitter_icon.png" width="32" height="32" alt="Twitter" />
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="https://github.com/Juki0204">
                         <a target="_blank">
-                            <Image
-                                src="/img/GitHub_icon.png"
-                                width={32}
-                                height={32}
-                                alt="GitHub"
-                            />
+                            <img src="/img/GitHub_icon.png" width="32" height="32" alt="GitHub" />
                         </a>
                     </Link>
                 </li>

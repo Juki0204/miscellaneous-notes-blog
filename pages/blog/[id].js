@@ -9,7 +9,7 @@ import React from 'react';
 import * as Icon from 'react-feather';
 
 import hljs from 'highlight.js';
-import 'highlight.js/styles/hybrid.css';
+import 'highlight.js/styles/monokai-sublime.css';
 import cheerio from 'cheerio';
 
 

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-// import Image from 'next/image';
+import Image from 'next/image';
+import microCMSLoader from '/src/component/microCMSLoader';
 import { format } from 'date-fns';
 
 import React from 'react';
@@ -14,7 +15,13 @@ export default function Card({blog,tags}){
             <Link href={`/blog/${blog.id}`}>
             <a className="card_link">
                 <div className="eyecatch">
-                    <img src={`${blog.eyecatch.url}`} alt={blog.title}/>
+                    <Image
+                        loader={microCMSLoader}
+                        src={blog.eyecatch.url}
+                        alt="アイキャッチ"
+                        layout="fill"
+                        objectfit="cover"
+                    />
                 </div>
                 <div className="detail">
                     <p className="publishedAt"><Icon.Clock width={16} height={16} />{format(new Date(blog.publishedAt), "yyyy年MM月dd日")}</p>
@@ -56,6 +63,8 @@ export default function Card({blog,tags}){
                 .eyecatch{
                     width: 100%;
                     height: auto;
+                    padding-top: 56.25%;
+                    position: relative;
                     overflow: hidden;
                     display: flex;
                     justify-content: center;

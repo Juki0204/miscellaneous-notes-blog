@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import React from 'react';
 import * as Icon from 'react-feather';
@@ -12,12 +12,7 @@ export default function SideBar({category,tags}) {
         <div className="profile">
           <h2 className="profile_ttl">Profile</h2>
           <div className="profile_img">
-            <Image 
-              src="/img/profile.jpg"
-              layout="fill"
-              objectFit="cover"
-              alt="プロフィール画像"
-            />
+            <img src="/img/profile.jpg" alt="プロフィール画像" />
           </div>
           <p className="profile_name">なおまる</p>
           <p className="profile_info">WEBデザイナーに転職して早4年。元パチンコ店マネジャー。最近はフロントエンド（React/Next.js）も触ってます。<br />
@@ -80,6 +75,11 @@ export default function SideBar({category,tags}) {
             position: relative;
             margin: 0 auto;
             background-color: #ddd;
+          }
+
+          .profile_img img{
+            width: 100%;
+            height: auto;
           }
 
           .profile_name{

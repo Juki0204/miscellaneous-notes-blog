@@ -24,7 +24,7 @@ export const getStaticProps = async() => {
 
 export default function Home({blog,category,tags,totalCount}) {
 
-  // カテゴリーソート
+  // カテゴリーフィルター
   // const [showPosts, setShowPosts] = useState(blog);
 
   // console.log(showPosts);
@@ -45,7 +45,7 @@ export default function Home({blog,category,tags,totalCount}) {
   // }
 
 
-  // タグソート
+  // タグフィルター
 
   // const selectTags = (tags) =>{
   //   if (tags === 'all') {

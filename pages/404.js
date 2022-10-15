@@ -1,4 +1,3 @@
-import styles from "/styles/Pages.module.scss";
 
 export default function Custom404(){
     return(
