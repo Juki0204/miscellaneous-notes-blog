@@ -48,6 +48,10 @@ li{
   max-width: 500px;
 }
 
+.post code{
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
 
 /* @media (prefers-color-scheme: dark) {
   html {

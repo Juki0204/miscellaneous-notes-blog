@@ -2,10 +2,11 @@
 
 import { client } from '/libs/client';
 
-import Layout from '/src/component/Layout';
+import Layout from '/src/component/base/Layout';
 import SideBar from '/src/component/SideBar';
 import CardContainer from '/src/component/CardContainer';
 import { Pagination } from '/src/component/Pagination';
+import Metadata from '/src/component/base/Metadata';
 
 
 export const getStaticProps = async() => {
@@ -73,6 +74,11 @@ export default function Home({blog,category,tags,totalCount}) {
 
   return (
     <Layout>
+      <Metadata
+        title="トップページ"
+        description="なおまるが運営する雑記ブログ「ざくざく、ごろん。」のトップページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。"
+        type="blog"
+      />
       <CardContainer
         blog={blog}
         totalCount={totalCount}

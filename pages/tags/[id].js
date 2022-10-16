@@ -1,9 +1,9 @@
 import { client } from "../../libs/client";
 
-import Layout from '/src/component/Layout';
+import Layout from '/src/component/base/Layout';
 import SideBar from '/src/component/SideBar';
 import CardContainer from '/src/component/CardContainer';
-
+import Metadata from '/src/component/base/Metadata';
 
 
 export const getStaticPaths = async() => {
@@ -41,6 +41,11 @@ export const getStaticProps = async(context) => {
 export default function TagsId({blog,category,tags,activeTags}){
     return(
         <Layout>
+            <Metadata
+                title={`【${activeTags}】タグを含む記事一覧`}
+                description={`なおまるが運営する雑記ブログ「ざくざく、ごろん。」の【${activeTags}】タグを含む記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。`}
+                type="blog"
+            />
             <CardContainer
                 blog={blog}
                 ttl={`タグ別記事一覧：${activeTags}`}

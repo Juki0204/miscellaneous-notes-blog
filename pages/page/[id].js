@@ -1,9 +1,10 @@
 import { client } from '/libs/client';
 
-import Layout from '/src/component/Layout';
+import Layout from '/src/component/base/Layout';
 import SideBar from '/src/component/SideBar';
 import CardContainer from '/src/component/CardContainer';
 import { Pagination } from '/src/component/Pagination';
+import Metadata from '/src/component/base/Metadata';
 
 
 // 動的なページを作成
@@ -37,9 +38,13 @@ const PER_PAGE = 6;
 
 // pages/blog/[id].js
 export default function BlogPageId({ blog,category,tags,totalCount,id }) {
-    console.log(id);
     return (
     <Layout>
+      <Metadata
+        title="最新記事一覧"
+        description="なおまるが運営する雑記ブログ「ざくざく、ごろん。」の最新記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。"
+        type="blog"
+      />
       <CardContainer
         blog={blog}
         totalCount={totalCount}

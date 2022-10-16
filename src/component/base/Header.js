@@ -1,5 +1,5 @@
 import Link from 'next/link';
-// import Image from 'next/image';0
+// import Image from 'next/image';
 
 
 export default function Header(){

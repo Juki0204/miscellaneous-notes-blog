@@ -1,5 +1,5 @@
-import Header from '/src/component/Header';
-import Footer from '/src/component/Footer';
+import Header from '/src/component/base/Header';
+import Footer from '/src/component/base/Footer';
 // import Image from 'next/image';
 
 

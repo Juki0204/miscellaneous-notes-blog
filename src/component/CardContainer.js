@@ -2,10 +2,9 @@ import Card from '/src/component/Card';
 
 
 export default function CardContainer({blog,ttl}) {
-    console.log(ttl);
     return(
         <div className="container">
-            {ttl !== undefined && (
+            {ttl && (
                 <h2 className="ttl">{ttl}</h2>
             )}
             {blog.length === 0 && (

@@ -2,8 +2,9 @@ import { useRouter } from 'next/router';
 
 import { client } from "../../libs/client";
 import { format } from 'date-fns';
-import Layout from '/src/component/Layout';
+import Layout from '/src/component/base/Layout';
 import SideBar from '/src/component/SideBar';
+import Metadata from '/src/component/base/Metadata';
 
 import React from 'react';
 import * as Icon from 'react-feather';
@@ -57,12 +58,17 @@ export const BackButton = () => {
   )
 }
 
-const BlogId = ({blog,activeTags,category,tags}) => {
+export default function BlogId({blog,activeTags,category,tags}){
     const router = useRouter()
     const eyecatchImage = blog.eyecatch.url;
     console.log(eyecatchImage);
   return (
     <Layout>
+        <Metadata
+            title={blog.title}
+            description={blog.body.replace(/(<([^>]+)>)/gi, '').substr(0,100)+"..."}
+            type="article"
+        />
         <div className="container">
             {/* <div className="title_outer" style={{backgroundImage: "url("+eyecatchImage+")"}}>
             </div> */}
@@ -106,6 +112,7 @@ const BlogId = ({blog,activeTags,category,tags}) => {
                 font-size: 30px;
                 z-index: 1;
                 text-align: left;
+                width: 100%;
             }
 
             .eyecatch{
@@ -114,6 +121,7 @@ const BlogId = ({blog,activeTags,category,tags}) => {
                 left: 0;
                 width: 100%;
             }
+
             .eyecatch img{
                 width: 100%;
                 height: auto;
@@ -200,5 +208,3 @@ const BlogId = ({blog,activeTags,category,tags}) => {
     </Layout>
   )
 }
-
-export default BlogId

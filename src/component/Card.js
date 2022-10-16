@@ -8,8 +8,6 @@ import * as Icon from 'react-feather';
 
 
 export default function Card({blog,tags}){
-    var imgSrc = blog.eyecatch.url;
-    console.log(imgSrc);
     return(
         <li className="card">
             <Link href={`/blog/${blog.id}`}>
