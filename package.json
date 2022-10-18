@@ -11,7 +11,11 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "date-fns": "^2.29.3",
+    "dompurify": "^2.4.0",
     "highlight.js": "^11.6.0",
+    "html-react-parser": "^3.0.4",
+    "isomorphic-dompurify": "^0.23.0",
+    "jsdom": "^20.0.1",
     "microcms-js-sdk": "^2.2.1",
     "next": "12.2.5",
     "react": "18.2.0",

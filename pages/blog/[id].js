@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 import { client } from "../../libs/client";
 import { format } from 'date-fns';
 import Layout from '/src/component/base/Layout';
 import SideBar from '/src/component/SideBar';
 import Metadata from '/src/component/base/Metadata';
+
+import ConvertBody from '/src/component/ConvertBody';
 
 import React from 'react';
 import * as Icon from 'react-feather';
@@ -60,8 +63,6 @@ export const BackButton = () => {
 
 export default function BlogId({blog,activeTags,category,tags}){
     const router = useRouter()
-    const eyecatchImage = blog.eyecatch.url;
-    console.log(eyecatchImage);
   return (
     <Layout>
         <Metadata
@@ -70,10 +71,13 @@ export default function BlogId({blog,activeTags,category,tags}){
             type="article"
         />
         <div className="container">
-            {/* <div className="title_outer" style={{backgroundImage: "url("+eyecatchImage+")"}}>
-            </div> */}
             <div className="eyecatch">
-                <img src={`${blog.eyecatch.url}`} alt={blog.title}/>
+                <Image
+                    src={blog.eyecatch.url}
+                    alt={blog.title}
+                    layout="fill"
+                    objectfit="cover"
+                />
             </div>
             <h2 className="title">{blog.title}</h2>
             <div className="info">
@@ -87,7 +91,7 @@ export default function BlogId({blog,activeTags,category,tags}){
                 </div>
                 <p className="publishedAt"><Icon.Clock width={16} height={16} />{format(new Date(blog.publishedAt), "yyyy年MM月dd日")}</p>
             </div>
-            <div className="post" dangerouslySetInnerHTML={{__html:`${blog.body}`}}></div>
+            <ConvertBody contentHTML={blog.body} className="post" />
         </div>
         <p className="back_button" alia-label="戻る" type="button" onClick={() => router.back()}> &lt; 記事一覧へ戻る &gt;</p>
         <SideBar category={category} tags={tags} />
@@ -120,6 +124,7 @@ export default function BlogId({blog,activeTags,category,tags}){
                 top: 0;
                 left: 0;
                 width: 100%;
+                aspect-ratio: 16/9;
             }
 
             .eyecatch img{

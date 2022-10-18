@@ -46,6 +46,7 @@ li{
 .post img{
   width: 100%;
   max-width: 500px;
+  aspect-ratio: 16/9;
 }
 
 .post code{

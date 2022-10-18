@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import microCMSLoader from '/src/component/microCMSLoader';
 import { format } from 'date-fns';
 
 import React from 'react';
@@ -14,11 +13,12 @@ export default function Card({blog,tags}){
             <a className="card_link">
                 <div className="eyecatch">
                     <Image
-                        loader={microCMSLoader}
+                        layout="responsive"
                         src={blog.eyecatch.url}
-                        alt="アイキャッチ"
-                        layout="fill"
-                        objectfit="cover"
+                        alt={blog.title}
+                        width={900}
+                        height={506}
+                        size="(min-width:768px)768px 100vw"
                     />
                 </div>
                 <div className="detail">
@@ -61,17 +61,14 @@ export default function Card({blog,tags}){
                 .eyecatch{
                     width: 100%;
                     height: auto;
-                    padding-top: 56.25%;
+                    aspect-ratio: 16/9;
                     position: relative;
                     overflow: hidden;
-                    display: flex;
-                    justify-content: center;
                 }
 
                 .eyecatch img{
                     width: 100%;
                     height: auto;
-                    aspect-ratio: 16/9;
                 }
 
                 .detail{
@@ -149,8 +146,6 @@ export default function Card({blog,tags}){
                         opacity: 1;
                     }
                 }
-
-                
 
                 @media screen and (max-width:767px){
                     .card{

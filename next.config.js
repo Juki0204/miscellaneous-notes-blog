@@ -4,7 +4,6 @@ const nextConfig = {
   swcMinify: true,
 
   images: {
-    loader: "custom",
     domains: ['images.microcms-assets.io'],
   },
 }
