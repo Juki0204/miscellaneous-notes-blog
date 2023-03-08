@@ -11,14 +11,14 @@ export default function ConvertBody({contentHTML, className}){
     const contentReact = parse(cleanHtmlString, {
         replace: (node) => {
             if(node.name === 'img'){
-                const{src, alt} = node.attribs
+                const{src, alt, width, height} = node.attribs
                 return(
                     <Image
                         layout="responsive"
                         src={src}
                         alt={alt}
-                        width={900}
-                        height={506}
+                        width={width}
+                        height={height}
                         size="(min-width:768px)768px 100vw"
                     />
                 )

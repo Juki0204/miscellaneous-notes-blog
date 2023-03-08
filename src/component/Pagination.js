@@ -13,7 +13,6 @@ export const Pagination = ({ totalCount,id,directory }) => {
   }
 
   var maxNum = Math.ceil(Number(totalCount / PER_PAGE));
-  console.log(maxNum);
 
   return (
     <ul>
