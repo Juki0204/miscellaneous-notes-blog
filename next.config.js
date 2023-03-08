@@ -7,7 +7,7 @@ const nextConfig = {
     domains: ['images.microcms-assets.io'],
   },
   
-  target: 'serverless'
+//   target: 'serverless'
 }
 
 module.exports = nextConfig
