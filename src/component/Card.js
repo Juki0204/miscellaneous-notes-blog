@@ -9,8 +9,7 @@ import * as Icon from 'react-feather';
 export default function Card({blog,tags}){
     return(
         <li className="card">
-            <Link href={`/blog/${blog.id}`}>
-            <a className="card_link">
+            <Link href={`/blog/${blog.id}`} className="card_link">
                 <div className="eyecatch">
                     <Image
                         layout="responsive"
@@ -34,7 +33,6 @@ export default function Card({blog,tags}){
                     <h3 className="detail_ttl">{blog.title}</h3>
                     <div className="post">{blog.body.replace(/(<([^>]+)>)/gi, '')}</div>
                 </div>
-            </a>
             </Link>
 
             <style jsx>{`

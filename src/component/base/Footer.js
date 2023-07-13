@@ -7,16 +7,12 @@ export default function Footer(){
             <ul>
                 <li>
                     <Link href="/">
-                        <a target="_blank">
-                            <img src="/img/Twitter_icon.png" width="32" height="32" alt="Twitter" />
-                        </a>
+                        <img src="/img/Twitter_icon.png" width="32" height="32" alt="Twitter" />
                     </Link>
                 </li>
                 <li>
                     <Link href="https://github.com/Juki0204">
-                        <a target="_blank">
-                            <img src="/img/GitHub_icon.png" width="32" height="32" alt="GitHub" />
-                        </a>
+                        <img src="/img/GitHub_icon.png" width="32" height="32" alt="GitHub" />
                     </Link>
                 </li>
             </ul>

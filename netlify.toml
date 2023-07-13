@@ -7,6 +7,6 @@
   status = 200
 
 [build]
-   command   = "npm run build"
+   command   = "next build"
    functions = "out_functions"
    publish   = "out_publish"

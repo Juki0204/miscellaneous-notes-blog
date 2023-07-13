@@ -7,9 +7,7 @@ export default function Header(){
         <header>
                 <h1>
                     <Link href="/">
-                        <a>
-                            <img src="/img/header_logo.png" alt="ざくざく、ごろん。"/>
-                        </a>
+                        <img src="/img/header_logo.png" alt="ざくざく、ごろん。"/>
                     </Link>
                 </h1>
 

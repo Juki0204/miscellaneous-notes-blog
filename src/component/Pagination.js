@@ -18,19 +18,19 @@ export const Pagination = ({ totalCount,id,directory }) => {
     <ul>
       <li className={idNum == 1 ? "prev hidden" : "prev"}>
         <Link href={`${directory}${idNum - 1}`}>
-          <a>&lt; Prev</a>
+          &lt; Prev
         </Link>
       </li>
       {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
         <li key={index} className={number === idNum ? "pagination active" : "pagination"}>
           <Link href={ `${directory}${number}`}>
-            <a>{number}</a>
+            {number}
           </Link>
         </li>
       ))}
       <li className={idNum == maxNum ? "next hidden" : "next"}>
         <Link href={`${directory}${idNum + 1}`}>
-          <a>Next &gt;</a>
+          Next &gt;
         </Link>
       </li>
 

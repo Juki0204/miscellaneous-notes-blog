@@ -24,7 +24,7 @@ export default function SideBar({category,tags}) {
               {category.map((category) => (
                 <li key={category.id}>
                   <Link href={`/category/${category.id}`}>
-                      <a>{category.name}</a>
+                      {category.name}
                   </Link>
                 </li>
             ))}
@@ -36,7 +36,7 @@ export default function SideBar({category,tags}) {
               {tags.map((tags) => (
                 <li key={tags.id}>
                 <Link href={`/tags/${tags.id}`}>
-                  <a><Icon.Tag width={16} height={16} />{tags.tags}</a>
+                  <Icon.Tag width={16} height={16} />{tags.tags}
                 </Link>
                 </li>
             ))}
