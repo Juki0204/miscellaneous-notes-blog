@@ -1,52 +1,36 @@
 import Card from '/src/component/Card';
 
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+
+const container = css`
+    grid-area: container;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 0 10px;
+    @media (min-width: 901px){
+        padding: 0 20px 10px 10px;
+    }
+`;
 
 export default function CardContainer({blog,ttl}) {
+    const blogCount = blog.length;
+    
     return(
-        <div className="container">
+        <Container css={container}>
             {ttl && (
-                <h2 className="ttl">{ttl}</h2>
+                <Heading as='h2' marginBottom='10px'>{ttl}</Heading>
             )}
             {blog.length === 0 && (
-                <p>該当するブログコンテンツがありません。</p>
+                <Text>該当するブログコンテンツがありません。</Text>
             )}
-            <ul className="card_list">
+            <Flex id="blogList" w='100%' flexWrap='wrap' gap='10px'>
             {blog.map((blog) => (
                 <Card key={blog.id} blog={blog} tags={blog.tags}/>
             ))}
-            </ul>
-
-            <style jsx>{`
-                .container{
-                    grid-area: container;
-                    width: 900px;
-                    padding: 0 20px 10px 0;
-                }
-
-                .ttl{
-                    width: 100%;
-                    margin: 0 auto 10px;
-                }
-
-                .card_list{
-                    width: 100%;
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 20px 10px;
-                }
-                
-                @media screen and (max-width:1000px){
-                    .container{
-                        width: 100%; 
-                        padding: 0 0 10px;
-                    } 
-
-                    .card_list{
-                        gap: 10px;
-                    }
-                }
-            
-            `}</style>
-        </div>
+            {blogCount % 2 == 1 && <Box w='calc(50% - 5px)'></Box>}
+            </Flex>
+        </Container>
     )
 }

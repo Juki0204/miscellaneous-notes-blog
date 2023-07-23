@@ -5,164 +5,74 @@ import { format } from 'date-fns';
 import React from 'react';
 import * as Icon from 'react-feather';
 
+import { Badge, Box, Container, Flex, Heading, List, ListItem } from '@chakra-ui/react';
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+
+const card = css`
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    box-shadow: 1px 1px 3px #ddd;
+    position: relative;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    @media (min-width:768px){
+        width: calc(50% - 5px);
+    }
+`;
+
+const cardTtl = css`
+    width: 100%;
+    margin: 3px auto;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    height: 40px;
+`;
+
+// const post = css`
+//     font-size: 12px;
+//     display: -webkit-box;
+//     -webkit-box-orient: vertical;
+//     -webkit-line-clamp: 2;
+//     overflow: hidden;
+//     text-align: justify;
+// `;
 
 export default function Card({blog,tags}){
     return(
-        <li className="card">
+        <Container css={card}>
             <Link href={`/blog/${blog.id}`} className="card_link">
-                <div className="eyecatch">
+                <Box aspectRatio='16/9' overflow='hidden' position='relative' borderRadius='8px'>
                     <Image
-                        layout="responsive"
+                        fill
                         src={blog.eyecatch.url}
                         alt={blog.title}
-                        width={900}
-                        height={506}
-                        size="(min-width:768px)768px 100vw"
+                        sizes="auto"
                     />
-                </div>
-                <div className="detail">
-                    <p className="publishedAt"><Icon.Clock width={16} height={16} />{format(new Date(blog.publishedAt), "yyyy年MM月dd日")}</p>
-                    <div className="category_box">
-                        <span className="category">{blog.category && `${blog.category.name}`}</span>
+                </Box>
+                <Flex flexWrap='wrap' padding='5px'>
+                    <Badge paddingInline='10px' marginRight='6px' borderRadius='5px' height='20px' lineHeight='20px' backgroundColor='gray.200'>
+                        {blog.category && `${blog.category.name}`}
+                    </Badge>
+                    <List display='flex' gap='10px'>
                         {tags.map((tags) => (
-                            <span key={tags.id} className="tags">
+                            <ListItem display='flex' alignItems='center' gap='3px' fontSize='sm' key={tags.id}>
                                 <Icon.Tag width={14} height={14} />{tags.tags}
-                            </span>
+                            </ListItem>
                         ))}
-                    </div>
-                    <h3 className="detail_ttl">{blog.title}</h3>
-                    <div className="post">{blog.body.replace(/(<([^>]+)>)/gi, '')}</div>
-                </div>
+                    </List>
+                    <Heading as='h3' fontSize='md' css={cardTtl}>{blog.title}</Heading>
+                    {/* <Text css={post}>{blog.body.replace(/(<([^>]+)>)/gi, '')}</Text> */}
+                </Flex>
+                <Flex gap='0 5px' alignItems='center' justifyContent='right' fontSize='sm'>
+                    <Icon.Clock width={16} height={16} />
+                    {format(new Date(blog.publishedAt), "yyyy年MM月dd日")}
+                </Flex>
             </Link>
-
-            <style jsx>{`
-                .card{
-                    width: calc(50% - 5px);
-                    border-radius: 8px;
-                    overflow: hidden;
-                    background: #fff;
-                    box-shadow: 1px 1px 3px #999;
-                    transition: .3s all ease;
-                    animation: fade-in 1s ease 0s forwards;
-                }
-
-                .card:hover{
-                    transform: scale(1.02);
-                }
-                
-                .card_link{
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-                }
-
-                .eyecatch{
-                    width: 100%;
-                    height: auto;
-                    aspect-ratio: 16/9;
-                    position: relative;
-                    overflow: hidden;
-                }
-
-                .eyecatch img{
-                    width: 100%;
-                    height: auto;
-                }
-
-                .detail{
-                    background: rgba(255,255,255,.8);
-                    width: 100%;
-                    padding: 10px;
-                    box-sizing: border-box;
-                    position: relative;
-                }
-
-                .detail_ttl{
-                    margin: 3px auto;
-                    font-size: 16px;
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 1;
-                    overflow: hidden;
-                }
-
-                .category_box{
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: left;
-                    align-items: center;
-                }
-    
-                .category{
-                    display: inline-block;
-                    font-weight: bold;
-                    border-radius: 5px;
-                    background: #999;
-                    color: #fff;
-                    margin: 0 5px 0 0;
-                    padding: 0 10px;
-                    font-size: 12px;
-                    letter-spacing: 1px;
-                    height: 24px;
-                    line-height: 24px;
-                }
-    
-                .tags{
-                    display: flex;
-                    align-items: center;
-                    gap: 0 3px;
-                    padding: 0 5px;
-                    margin: 0 5px 0 0;
-                    font-size: 14px;
-                    height: 30px;
-                    line-height: 30px;
-                }
-
-                .post{
-                    font-size: 12px;
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2;
-                    overflow: hidden;
-                }
-
-                .publishedAt{
-                    display: flex;
-                    align-items: center;
-                    justify-content: left;
-                    gap: 0 5px;
-                    padding: 0 2px 2px 0;
-                    font-size: 12px;
-                    box-sizing: border-box;
-                }
-
-                @keyframes fade-in{
-                    0%{
-                        opacity: 0;
-                    }
-                    100%{
-                        opacity: 1;
-                    }
-                }
-
-                @media screen and (max-width:767px){
-                    .card{
-                        width: 100%;
-                    }
-                    
-                    .detail_ttl{
-                        margin: 0 auto 3px;
-                    }
-
-                    .category, .tags{
-                        font-size: 12px;
-                        line-height: 20px;
-                        height: 20px;
-                        margin: 0 5px 3px 0;
-                    }
-                }
-            `}</style>
-
-        </li>
+        </Container>
     )
 }

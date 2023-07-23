@@ -3,6 +3,15 @@ import Image from 'next/image';
 // import DOMPurify from 'dompurify';
 import DOMPurify from 'isomorphic-dompurify';
 
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+
+const image = css`
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    position: relative !important;
+`;
 
 export default function ConvertBody({contentHTML, className}){
     const cleanHtmlString = DOMPurify.sanitize(contentHTML,{
@@ -11,17 +20,14 @@ export default function ConvertBody({contentHTML, className}){
     const contentReact = parse(cleanHtmlString, {
         replace: (node) => {
             if(node.name === 'img'){
-                const{src, alt, width, height} = node.attribs
-                return(
-                    <Image
-                        layout="responsive"
-                        src={src}
-                        alt={alt}
-                        width={width}
-                        height={height}
-                        size="(min-width:768px)768px 100vw"
-                    />
-                )
+                const{src, alt} = node.attribs
+                return <Image
+                            fill
+                            src={src}
+                            alt={alt}
+                            sizes="auto"
+                            css={image}
+                        />
             }
         }
     })

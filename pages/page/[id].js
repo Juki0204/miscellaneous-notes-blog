@@ -1,7 +1,6 @@
 import { client } from '/libs/client';
 
 import Layout from '/src/component/base/Layout';
-import SideBar from '/src/component/SideBar';
 import CardContainer from '/src/component/CardContainer';
 import { Pagination } from '/src/component/Pagination';
 import Metadata from '/src/component/base/Metadata';
@@ -19,7 +18,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     const id = context.params.id;
 
-    const data = await client.get({ endpoint: "blog", queries: { offset: (id - 1) * 6, limit: 6 } });
+    const data = await client.get({ endpoint: "blog", queries: { offset: (id - 1) * 8, limit: 8 } });
     const categoryData = await client.get({endpoint: 'categories'});
     const tagsData = await client.get({endpoint: 'tags'});
 
@@ -34,12 +33,12 @@ export const getStaticProps = async (context) => {
     };
 };
 
-const PER_PAGE = 6; 
+const PER_PAGE = 8; 
 
 // pages/blog/[id].js
 export default function BlogPageId({ blog,category,tags,totalCount,id }) {
     return (
-    <Layout>
+    <Layout category={category} tags={tags}>
       <Metadata
         title="最新記事一覧"
         description="なおまるが運営する雑記ブログ「ざくざく、ごろん。」の最新記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。"
@@ -51,7 +50,6 @@ export default function BlogPageId({ blog,category,tags,totalCount,id }) {
         id={id}
       />
       <Pagination blog={blog} totalCount={totalCount} id={id} directory="/page/" />
-      <SideBar category={category} tags={tags} />
     </Layout>
   );
 }
