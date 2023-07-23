@@ -40,7 +40,11 @@ export const getStaticProps = async(context) => {
 
 export default function CategoryId({blog,category,activeCategory,tags,totalCount}){
     return(
-        <Layout category={category} tags={tags}>
+        <Layout
+            category={category}
+            tags={tags}
+            ttl={`カテゴリー別記事一覧：${activeCategory}`}
+        >
             <Metadata
                 title={`【${activeCategory}】カテゴリーの記事一覧`}
                 description={`なおまるが運営する雑記ブログ「ざくざく、ごろん。」の【${activeCategory}】カテゴリーの記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。`}
@@ -48,7 +52,6 @@ export default function CategoryId({blog,category,activeCategory,tags,totalCount
             />
             <CardContainer
                 blog={blog}
-                ttl={`カテゴリー別記事一覧：${activeCategory}`}
                 totalCount={totalCount}
             />
         </Layout>

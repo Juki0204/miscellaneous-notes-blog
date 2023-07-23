@@ -93,17 +93,30 @@ const container = css`
     }
 `;
 
+const blogTtl = css`
+    font-size:24px;
+    border-bottom: 6px solid #ddd;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    text-align: justify;
+    @media (min-width: 901px){
+        font-size: 30px;
+    }
+`;
 
 export default function BlogId({blog,activeTags,category,tags}){
   return (
-    <Layout category={category} tags={tags}>
+    <Layout
+        category={category}
+        tags={tags}
+    >
         <Metadata
             title={blog.title}
             description={blog.body.replace(/(<([^>]+)>)/gi, '').substr(0,100)+"..."}
             type="article"
         />
         <Container css={container}>
-            <Heading as="h1" fontSize='30px' borderBottom='6px solid #999' padding='5px 0' marginBottom='10px'>{blog.title}</Heading>
+            <Heading as="h1" css={blogTtl}>{blog.title}</Heading>
             <Box marginBottom='50px'>
                 <Flex flexWrap='wrap'>
                     <Badge paddingInline='10px' marginRight='6px' borderRadius='5px' height='20px' lineHeight='20px' backgroundColor='gray.200'>

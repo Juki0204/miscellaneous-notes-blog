@@ -38,7 +38,10 @@ const PER_PAGE = 8;
 // pages/blog/[id].js
 export default function BlogPageId({ blog,category,tags,totalCount,id }) {
     return (
-    <Layout category={category} tags={tags}>
+    <Layout
+      category={category}
+      tags={tags}
+    >
       <Metadata
         title="最新記事一覧"
         description="なおまるが運営する雑記ブログ「ざくざく、ごろん。」の最新記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。"

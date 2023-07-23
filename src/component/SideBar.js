@@ -30,6 +30,7 @@ const listItem = css`
 
 const sideBar = css`
   width: 100%;
+  height: min-content;
   border-top: 1px solid #ccc;
   letter-spacing: 2px;
   @media (min-width:901px){
@@ -71,29 +72,29 @@ export default function SideBar({category,tags}) {
             WEB関係と趣味についてだらだら書いてます。
           </Text>
         </GridItem>
-        <GridItem area={'category'}>
-            <Heading as='h2' marginBottom='10px'>Category</Heading>
-            <List marginBottom='20px'>
-              {category.map((category) => (
-                <ListItem css={listItem} key={category.id}>
-                  <Link href={`/category/${category.id}`}>
-                    {category.name}
-                  </Link>
-                </ListItem>
-            ))}
-            </List>
+        <GridItem area={'category'} marginBottom='20px'>
+          <Heading as='h2' marginBottom='10px'>Category</Heading>
+          <List>
+            {category.map((category) => (
+              <ListItem css={listItem} key={category.id}>
+                <Link href={`/category/${category.id}`}>
+                  {category.name}
+                </Link>
+              </ListItem>
+          ))}
+          </List>
         </GridItem>
         <GridItem area={'tags'}>
-            <Heading as='h2' marginBottom='10px'>Tags</Heading>
-            <List marginBottom='20px'>
-              {tags.map((tags) => (
-                <ListItem css={listItem} key={tags.id}>
-                  <Link href={`/tags/${tags.id}`}>
-                    <Icon.Tag width={16} height={16} />{tags.tags}
-                  </Link>
-                </ListItem>
-            ))}
-            </List>
+          <Heading as='h2' marginBottom='10px'>Tags</Heading>
+          <List>
+            {tags.map((tags) => (
+              <ListItem css={listItem} key={tags.id}>
+                <Link href={`/tags/${tags.id}`}>
+                  <Icon.Tag width={16} height={16} />{tags.tags}
+                </Link>
+              </ListItem>
+          ))}
+          </List>
         </GridItem>
       </Grid>
     )

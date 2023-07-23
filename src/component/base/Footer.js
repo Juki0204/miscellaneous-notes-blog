@@ -7,7 +7,7 @@ import { css } from "@emotion/react";
 
 const footer = css`
     width: 100%;
-    background: #999;   
+    background: #ccc;   
     padding-top: 10px;
 `;
 

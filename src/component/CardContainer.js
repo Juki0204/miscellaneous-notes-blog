@@ -1,6 +1,6 @@
 import Card from '/src/component/Card';
 
-import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Text } from '@chakra-ui/react';
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
@@ -8,20 +8,17 @@ const container = css`
     grid-area: container;
     width: 100%;
     max-width: 900px;
-    padding: 0 0 10px;
+    padding: 10px;
     @media (min-width: 901px){
         padding: 0 20px 10px 10px;
     }
 `;
 
-export default function CardContainer({blog,ttl}) {
+export default function CardContainer({blog}) {
     const blogCount = blog.length;
     
     return(
         <Container css={container}>
-            {ttl && (
-                <Heading as='h2' marginBottom='10px'>{ttl}</Heading>
-            )}
             {blog.length === 0 && (
                 <Text>該当するブログコンテンツがありません。</Text>
             )}

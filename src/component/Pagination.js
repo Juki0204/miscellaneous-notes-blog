@@ -36,14 +36,11 @@ export const Pagination = ({ totalCount,id,directory }) => {
   const pagination = css`
     display: grid;
     place-content: center;
-    background: #eee;
+    background: #fff;
     width: 40px;
     font-size: 20px;
     aspect-ratio: 1/1;
     border-radius: 10px;
-    @media (min-width: 901px){
-      background: white;
-    }
     &[data-status="active"]{
       pointer-events: none;
       background: #333;
