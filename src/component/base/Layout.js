@@ -5,6 +5,7 @@ import SideBar from '/src/component/SideBar';
 
 import { Button, Heading } from '@chakra-ui/react';
 
+import { useState, useEffect } from 'react';
 import React from 'react';
 import * as Icon from 'react-feather';
 
@@ -56,6 +57,14 @@ const returnTopBtn = css`
     padding: 10px;
     border-radius: 50%;
     background: #ccc; 
+    transition: .3s all ease;
+    &[data-visible="true"]{
+        opacity: 1;
+    }
+    &[data-visible="false"]{
+        opacity: 0;
+        pointer-events: none;
+    }
 `;
 
 const returnTop = () => {
@@ -66,6 +75,19 @@ const returnTop = () => {
 };
 
 export default function Layout({children, category, tags, ttl}){
+    // スクロールを検知してTOPへ戻るボタン表示切り替え
+    const [ isVisible, setIsVisible ] = useState(false);
+    const toggleVisibility = () => {
+        window.scrollY > 100
+        ? setIsVisible(true)
+        : setIsVisible(false)
+    };
+    
+    useEffect(() => {
+        window.addEventListener('scroll', toggleVisibility)
+        return () => window.removeEventListener('scroll', toggleVisibility)
+    }, []);
+
     return (
         <>
             <Header />
@@ -77,7 +99,7 @@ export default function Layout({children, category, tags, ttl}){
                         {children}
                         <SideBar category={category} tags={tags} />
                     </div>
-                    <button css={returnTopBtn} onClick={returnTop}>
+                    <button css={returnTopBtn} onClick={returnTop} data-visible={isVisible}>
                         <Icon.ChevronUp width='20px' height='20px' color='white' />
                     </button>
                 </main>
