@@ -20,6 +20,11 @@ const card = css`
     border-radius: 10px;
     @media (min-width:768px){
         width: calc(50% - 5px);
+        transition: .3s all ease;
+        &:hover{
+            box-shadow: 2px 2px 6px #ccc;
+            transform: translate(-2px, -2px);
+        }
     }
 `;
 

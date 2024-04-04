@@ -23,6 +23,7 @@ export const getStaticProps = async() => {
 };
 
 export default function Home({blog,category,tags,totalCount}) {
+  console.log(blog);
   return (
     <Layout category={category} tags={tags} location="/">
       <Metadata
