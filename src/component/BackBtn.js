@@ -10,15 +10,21 @@ const backBtn = css`
     max-width: 880px;
     height: 60px;
     line-height: 60px;
-    margin: 10px 20px 0 0;
+    margin: 2px 0 20px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 0;
     align-items: center;
     justify-content: center;
     grid-area: pagination;
     cursor: pointer;
     transition: .3s all ease;
     letter-spacing: 2px;
+
+    @media (min-width:901px){
+      margin: 10px 20px 0 0;
+      border-radius: 8px;
+    }
+
     &:hover{
         background: #999;
         color: #fff;

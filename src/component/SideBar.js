@@ -55,11 +55,9 @@ const listItemTag = css`
 const sideBar = css`
   width: 100%;
   height: min-content;
-  border-top: 1px solid #ccc;
   letter-spacing: 2px;
   @media (min-width:901px){
     width: 400px;
-    border: none;
     border-radius: 10px;
   }
 `;
