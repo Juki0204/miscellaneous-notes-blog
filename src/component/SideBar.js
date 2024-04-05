@@ -9,12 +9,36 @@ import { Grid, GridItem, Box, Heading, Text, List, ListItem } from '@chakra-ui/r
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-const listItem = css`
+const listItemCategory = css`
   background: #eee;
   cursor: pointer;
   border-left: 4px solid #999;
   transition: .3s all ease;
   box-shadow: 1px 1px 3px #aaa;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  & a{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    gap: 0 5px;
+  }
+  &:hover{
+    background: #999;
+    color: white;
+  }
+`;
+
+const listItemTag = css`
+  background: #eee;
+  cursor: pointer;
+  border-left: 4px solid #999;
+  transition: .3s all ease;
+  box-shadow: 1px 1px 3px #aaa;
+  border-radius: 3px;
+  display: inline-block;
+  flex-grow: 1;
   & a{
     display: flex;
     justify-content: left;
@@ -76,7 +100,7 @@ export default function SideBar({category,tags}) {
           <Heading as='h2' marginBottom='10px'>Category</Heading>
           <List>
             {category.map((category) => (
-              <ListItem css={listItem} key={category.id}>
+              <ListItem css={listItemCategory} key={category.id}>
                 <Link href={`/category/${category.id}`}>
                   {category.name}
                 </Link>
@@ -86,9 +110,9 @@ export default function SideBar({category,tags}) {
         </GridItem>
         <GridItem area={'tags'}>
           <Heading as='h2' marginBottom='10px'>Tags</Heading>
-          <List>
+          <List display={'flex'} gap={'10px'} flexWrap={'wrap'}>
             {tags.map((tags) => (
-              <ListItem css={listItem} key={tags.id}>
+              <ListItem css={listItemTag} key={tags.id}>
                 <Link href={`/tags/${tags.id}`}>
                   <Icon.Tag width={16} height={16} />{tags.tags}
                 </Link>

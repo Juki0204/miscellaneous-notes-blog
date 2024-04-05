@@ -28,7 +28,7 @@ export default function Home({blog,category,tags,totalCount}) {
     <Layout category={category} tags={tags} location="/">
       <Metadata
         title="トップページ"
-        description="なおまるが運営する雑記ブログ「ざくざく、ごろん。」のトップページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。"
+        description="なおまるブログのトップページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。"
         type="blog"
       />
       <CardContainer

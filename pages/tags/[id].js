@@ -46,7 +46,7 @@ export default function TagsId({blog,category,tags,activeTags}){
         >
             <Metadata
                 title={`【${activeTags}】タグを含む記事一覧`}
-                description={`なおまるが運営する雑記ブログ「ざくざく、ごろん。」の【${activeTags}】タグを含む記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。`}
+                description={`なおまるブログの【${activeTags}】タグを含む記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。`}
                 type="blog"
             />
             <CardContainer

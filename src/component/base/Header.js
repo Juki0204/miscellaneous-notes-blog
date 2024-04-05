@@ -31,7 +31,7 @@ export default function Header(){
         <header css={header}>
             <Heading as='h1' height='100%'>
                 <Link href="/" css={ttlLogo}>
-                    <Image src="/img/header_logo.png" fill style={{ objectFit: 'contain' }} alt="ざくざく、ごろん。"/>
+                    <Image src="/img/header_logo.png" fill style={{ objectFit: 'contain' }} alt="なおまるブログ"/>
                 </Link>
             </Heading>
         </header>

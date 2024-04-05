@@ -47,7 +47,7 @@ export default function CategoryId({blog,category,activeCategory,tags,totalCount
         >
             <Metadata
                 title={`【${activeCategory}】カテゴリーの記事一覧`}
-                description={`なおまるが運営する雑記ブログ「ざくざく、ごろん。」の【${activeCategory}】カテゴリーの記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。`}
+                description={`なおまるブログの【${activeCategory}】カテゴリーの記事一覧ページです。WEB関連の事から趣味のクワガタ飼育、その他日常生活に関する事など、いろいろな記事を書いています。`}
                 type="blog"
             />
             <CardContainer

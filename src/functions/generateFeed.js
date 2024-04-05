@@ -1,7 +1,7 @@
 import { Feed } from 'feed';
 
 export const generateFeed = async ( post ) => {
-  const baseUrl = 'https://naomaru-blog.vercel.app/';
+  const baseUrl = 'https://naomaru-blog.vercel.app';
 
   const feed = new Feed({
     title: 'なおまるブログ',
