@@ -69,16 +69,17 @@ const container = css`
     }
     & p{
         line-height: 2;
+        text-align: justify;
     }
     & h2{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: bold; 
         margin-top: 100px;
         position: relative;
         background: #dfefff;
         box-shadow: 0px 0px 0px 5px #dfefff;
         border: dashed 2px white;
-        padding: .2em .6em;
+        padding: .4em .8em;
         color: #454545;
         &::after {
             position: absolute;
