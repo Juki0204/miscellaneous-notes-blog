@@ -59,10 +59,11 @@ const sideBar = css`
   @media (min-width:901px){
     width: 400px;
     border-radius: 10px;
+    position: sticky;
+    top: 10px;
   }
 `;
 
-//次ここのUIをChakraに置き換える作業から
 export default function SideBar({category,tags}) {
     return (
       <Grid

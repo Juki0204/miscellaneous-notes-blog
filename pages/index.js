@@ -9,7 +9,7 @@ import Metadata from '/src/component/base/Metadata';
 
 
 export const getStaticProps = async() => {
-  const data = await client.get({endpoint: 'blog', queries:{offset:0,limit:8}});
+  const data = await client.get({endpoint: 'blog', queries:{offset:0,limit:10}});
   const categoryData = await client.get({endpoint: 'categories'});
   const tagsData = await client.get({endpoint: 'tags'});
   return{
