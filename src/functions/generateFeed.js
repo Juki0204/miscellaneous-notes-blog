@@ -25,12 +25,12 @@ export const generateFeed = async ( post ) => {
     feed.addItem({
       title: post.title,
       link: url,
-      id: post.id,
+      id: url,
       published: new Date(post.publishedAt),
       description: post.body.replace(/(<([^>]+)>)/gi, '').substr(0,100)+"...",
       enclosure: {
         url: post.eyecatch.url,
-        size: post.eyecatch.width,
+        length: post.eyecatch.width,
         type: 'image/jpeg',
       }
     });
