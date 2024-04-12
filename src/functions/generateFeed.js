@@ -21,11 +21,10 @@ export const generateFeed = async ( post ) => {
   console.log(posts);
 
   posts.forEach(post => {
-    const url = `${baseUrl}/${post.id}`;
     feed.addItem({
       title: post.title,
-      link: url,
-      id: url,
+      link: `${baseUrl}/blog/${post.id}`,
+      id: `${baseUrl}/blog/${post.id}`,
       published: new Date(post.publishedAt),
       description: post.body.replace(/(<([^>]+)>)/gi, '').substr(0,100)+"...",
       enclosure: {
