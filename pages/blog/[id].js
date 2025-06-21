@@ -62,47 +62,143 @@ const container = css`
     position: relative;
     overflow: hidden;
     letter-spacing: 2px;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #333;
+
     @media (min-width:901px){
         padding: 40px;
         border-radius: 8px;
         margin: 0 20px 0 0;
     }
-    & p{
-        line-height: 2;
-        text-align: justify;
+
+    & h1, & h2, & h3, & h4 {
+      font-weight: bold;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
     }
+
     & h2{
-        font-size: 1.3rem;
-        font-weight: bold; 
-        margin-top: 100px;
-        position: relative;
-        background: #dfefff;
-        box-shadow: 0px 0px 0px 5px #dfefff;
-        border: dashed 2px white;
-        padding: .4em .8em;
-        color: #454545;
-        &::after {
-            position: absolute;
-            content: '';
-            left: -7px;
-            top: -7px;
-            border-width: 0 0 15px 15px;
-            border-style: solid;
-            border-color: #fff #fff #a8d4ff;
-            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-        }
+      font-size: 1.5rem;
+      position: relative;
+      background: #dfefff;
+      box-shadow: 0px 0px 0px 5px #dfefff;
+      border: dashed 2px white;
+      padding: .4em .8em;
+      color: #454545;
+      &::after {
+        position: absolute;
+        content: '';
+        left: -7px;
+        top: -7px;
+        border-width: 0 0 15px 15px;
+        border-style: solid;
+        border-color: #fff #fff #a8d4ff;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+      }
+    }
+    
+    & h3 {
+      font-size: 1.25rem;
+      color: #444;
+    }
+
+    & h4 {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    
+    & p {
+      margin: 1em 0;
+    }
+
+    & ul, & ol {
+      padding-left: 1.5rem;
+      margin: 1em 0;
+    }
+
+    & li {
+      margin: 0.5em 0;
+    }
+
+    & blockquote {
+      border-left: 4px solid #ccc;
+      padding-left: 1em;
+      color: #666;
+      margin: 1em 0;
+      font-style: italic;
+      background-color: #f9f9f9;
+    }
+
+    & pre {
+      background-color: #f5f5f5;
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: 4px;
+      margin: 1.5em 0;
+    }
+
+    & code {
+      font-family: 'Courier New', monospace;
+      background-color: #eee;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+
+    & hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 2em 0;
+    }
+
+    & img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1em auto;
+    }
+
+    & table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5em 0;
+      font-size: 0.95rem;
+    }
+
+    & th, & td {
+      border: 1px solid #ccc;
+      padding: 0.75em;
+      text-align: left;
+    }
+
+    & th {
+      background-color: #f0f0f0;
+    }
+
+    & a {
+      color: #0070f3;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    & strong {
+      font-weight: bold;
+    }
+
+    & em {
+      font-style: italic;
     }
 `;
 
 const blogTtl = css`
-    font-size:24px;
+    font-size: 2rem;
     border-bottom: 6px solid #ddd;
     padding: 5px 0;
     margin-bottom: 10px;
     text-align: justify;
-    @media (min-width: 901px){
-        font-size: 30px;
-    }
 `;
 
 export default function BlogId({blog,activeTags,category,tags}){
