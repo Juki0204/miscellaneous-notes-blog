@@ -132,7 +132,7 @@ const container = css`
     }
 
     & pre {
-      background-color: #f5f5f5;
+      background-color: #2a2c3b;
       padding: 1em;
       overflow-x: auto;
       border-radius: 4px;
@@ -141,7 +141,7 @@ const container = css`
 
     & code {
       font-family: 'Courier New', monospace;
-      background-color: #eee;
+      background-color: #2f334f;
       padding: 0.2em 0.4em;
       border-radius: 4px;
     }
@@ -164,6 +164,13 @@ const container = css`
       border-collapse: collapse;
       margin: 1.5em 0;
       font-size: 0.95rem;
+
+      & code {
+        font-family: 'Courier New', monospace;
+        background-color: #eee;
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+      }
     }
 
     & th, & td {
